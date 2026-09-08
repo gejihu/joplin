@@ -1,10 +1,11 @@
 name: Build Linux ARM64
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   Main:
-    # We always process desktop release tags, because they also publish the release
-    if: github.repository == 'laurent22/joplin'
     runs-on: ubuntu-22.04-arm
     permissions:
       contents: write
