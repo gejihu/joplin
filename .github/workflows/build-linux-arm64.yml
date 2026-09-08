@@ -54,3 +54,11 @@ jobs:
             echo "Building Linux ARM64 application without publishing..."
             USE_HARD_LINKS=false yarn dist --linux --arm64 --publish=never
           fi
+
+      - name: Upload Linux ARM64 artifacts
+        if: success() && env.PUBLISH_ENABLED != 'true'
+        uses: actions/upload-artifact@v6
+        with:
+          name: joplin-linux-arm64-${{ github.sha }}
+          path: packages/app-desktop/dist/*
+          if-no-files-found: error
