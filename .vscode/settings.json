@@ -1,4 +1,10 @@
 {
 	"cSpell.enabled": true,
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"chat.tools.terminal.autoApprove": {
+		"/^echo \"\\$PWD\" && ls -1 package\\.json && node -p \"require\\('\\./package\\.json'\\)\\.scripts\\.buildParallel \\|\\| 'NO_BUILD_PARALLEL'\"$/": {
+			"approve": true,
+			"matchCommandLine": true
+		}
+	}
 }
